@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +21,37 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class ChromeTestDemo2 {
 	WebDriver driver;
 
+	public void browsersetup(String browser) {
+//		String browser = "chrome";
+		switch (browser) {
+		case "chrome":
+			System.out.println("open browser chrome browser");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			break;
+		case "opera":
+			System.out.println("open opera");
+			WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
+			break;
+		case "edge":
+			System.out.println("open edge");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+			break;
+		case "safari":
+			System.out.println("open safari");
+			WebDriverManager.safaridriver().setup();
+			driver = new SafariDriver();
+			break;
+		default:
+			System.out.println("no browser name has given so we are using default browser as chrome");
+			System.setProperty("webdriver.chrome.driver", ".//BrowserDrivers//chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+
+	}
+
 	@AfterClass
 	public void closeBrowser() {
 		driver.close();
@@ -25,9 +59,7 @@ public class ChromeTestDemo2 {
 
 	@BeforeClass
 	public void openBrowser() {
-		System.out.println("open browser chrome browser");
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		browsersetup("edge");
 		driver.manage().window().maximize();
 		System.out.println("open applicaiton");
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
@@ -70,7 +102,7 @@ public class ChromeTestDemo2 {
 		System.out.println("Dashboard page title : " + dashboardTitle);
 	}
 
-	@Test(priority = 3, enabled = false )
+	@Test(priority = 3, enabled = false)
 	public void testVerifyPIM() {
 		System.out.println("Verify PIM page");
 		// click PIM tab
