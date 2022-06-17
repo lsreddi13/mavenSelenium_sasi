@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+	<parameter name="name" value="Admin" />
+	<parameter name="password" value="admin123" />
+	<parameter name="id" value="3456" />
+	<test name="payment">
+		<classes>
+			<class name="com.testng.groups.Demo1" />
+			<class name="com.testng.groups.Demo2" />
+
+
+		</classes>
+	</test>
+
+	<test name="sales">
+		<classes>
+			<class name="com.testng.parameter.DemoParameters" />
+			<class name="com.testng.parameter.DemoParameters2" />
+			<class name="com.testng.parameter.DemoParameters3" />
+		</classes>
+	</test>
+</suite>

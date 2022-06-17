@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.selenium.ignoreTest.DemoIgnore4">
+        <methods>
+          <include name="safariBro"/>
+          <include name="firefoxBro"/>
+          <include name="chromeBro"/>
+          <include name="closeBro"/>
+        </methods>
+      </class> <!-- com.selenium.ignoreTest.DemoIgnore4 -->
+      <class name="com.selenium.ignoreTest.DemoIgnore2">
+        <methods>
+          <include name="firefoxBro"/>
+          <include name="chromeBro"/>
+          <include name="closeBro"/>
+          <include name="safariBro"/>
+        </methods>
+      </class> <!-- com.selenium.ignoreTest.DemoIgnore2 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
