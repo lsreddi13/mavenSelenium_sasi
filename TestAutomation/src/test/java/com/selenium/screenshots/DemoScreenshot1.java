@@ -40,8 +40,11 @@ public class DemoScreenshot1 {
 
 			driver.findElement(By.id("txtUsername")).sendKeys("Admin");
 
-			driver.findElement(By.id("txtPassword")).sendKeys("admin123");
-
+			WebElement pwd = driver.findElement(By.id("txtPassword"));
+			pwd.sendKeys("admin123");
+			
+			
+			
 			driver.findElement(By.id("btnLogin")).click();
 
 			// verifying the dashboard page.
