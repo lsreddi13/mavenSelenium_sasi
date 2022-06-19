@@ -5,7 +5,8 @@
     <classes>
       <class name="com.selenoum.dataDriven.ExternalFiles.OHRM_CreatUser">
         <methods>
-          <include name="test"/>
+          <include name="test" invocation-numbers="0 1 2 3 4"/>
+          <include name="login"/>
         </methods>
       </class> <!-- com.selenoum.dataDriven.ExternalFiles.OHRM_CreatUser -->
     </classes>
